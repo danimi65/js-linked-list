@@ -6,6 +6,9 @@
 function linkedListGenerator(){
 
 var head = null;
+var size = 0;
+
+
 
 
 function getHead(){
@@ -43,6 +46,7 @@ function add(newValue){
   } else {
     tail.next= newNode;
     }
+    size ++;
   return newNode;
 
   }
@@ -51,14 +55,14 @@ function add(newValue){
 function remove(index){
   var previousNode = get(index-1);
   var curNode = get(index);
-  var nextNode = get(index+1);
+  //var nextNode = get(index+1);
 
-  if(curNode === false){
+   if(curNode === false){
     return false;
-    } 
+    }  
 
 // if you want to remove the curNode (the tail), 
-  if (curNode.next === null){
+    if (curNode.next === null){
       previousNode.next = null;
       return; // kills if and returns list with previousNode.next as null
     } 
@@ -67,8 +71,14 @@ function remove(index){
   if(index === 0){
     head = head.next;
     return;
-  }
+  } 
+  previousNode.next = curNode.next;
+
+  size--;
 }
+
+
+
 
 function get(value){
   var curNode = head;
@@ -84,14 +94,45 @@ function get(value){
 
 
 
-function insert(){
+function insert(newValue, index){
 
+   var previousNode = get(index-1);
+  var curNode = get(index);
+
+
+  var newNode = {
+    value: newValue,
+    next: curNode
+  };
+
+  if(curNode === false){
+    return false;
+  }
+
+if(index === 0){
+  head = newNode;
+  return;
+} else {
+  previousNode.next = newNode;
+}
+
+  /*if(curNode.next === null){
+    curNode.next = newNode;
+  } else {
+    previousNode.next = newNode;
+  } */
+
+  if(index > size){
+    return false;
+  }
+
+size ++;
+
+return;
 }
 
 
-//var ll= linkedListGenerator();
-//ll.add('kitten');
-//ll.add('puppy');
+
 
 
 return{
@@ -105,3 +146,7 @@ insert: insert
 
 
 }
+
+
+
+
