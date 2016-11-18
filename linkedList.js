@@ -78,9 +78,24 @@ function remove(index){
 }
 
 
+  function get(index){
+    var curNode = head;
+    var count = 0;
 
+    while(curNode !== null){
+      if(count === index){
+        return curNode;
+      } else {
+        curNode = curNode.next;
+        count ++;
+      } 
+    }
+    if(curNode === null){
+      return false;
+    }
+  }
 
-function get(value){
+/*function get(value){
   var curNode = head;
   for(var i=0; i < value; i++){
     if(curNode.next === null){
@@ -91,7 +106,7 @@ function get(value){
   }
   return curNode;
 }
-
+*/
 
 
 function insert(newValue, index){
@@ -106,8 +121,8 @@ function insert(newValue, index){
   };
 
   if(curNode === false){
-    return false;
-  }
+    return false; 
+  } 
 
 if(index === 0){
   head = newNode;
@@ -122,11 +137,11 @@ if(index === 0){
     previousNode.next = newNode;
   } */
 
-  if(index > size){
+/* if(index > size){
     return false;
   }
 
-size ++;
+size ++; */
 
 return;
 }
