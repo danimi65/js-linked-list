@@ -6,7 +6,7 @@
 function linkedListGenerator(){
 
 var head = null;
-var size = 0;
+//var size = 0;
 
 
 
@@ -14,6 +14,8 @@ var size = 0;
 function getHead(){
   return head;
 }
+
+
 
 function getTail(){
   var curNode = head;
@@ -46,10 +48,62 @@ function add(newValue){
   } else {
     tail.next= newNode;
     }
-    size ++;
+  //  size ++;
   return newNode;
 
   }
+
+
+
+  /*function get(index){
+    var curNode = head;
+    var count = 0;
+
+    while(curNode !== null){
+      if(count === index){
+        return curNode;
+      } else {
+        curNode = curNode.next;
+        count ++;
+      } 
+    }
+    if(curNode === null){
+      return false;
+    }
+  } */
+
+
+  /* function get(value){
+  var curNode = head;
+  for(var i=0; i < value; i++){
+    if(curNode.next === null){
+      return false; 
+    } else {
+     curNode= curNode.next;
+    }
+    
+  }
+  return curNode;
+}  */
+
+
+
+function get(value){
+  var curNode = head;
+
+  if(value < 0){
+    return false; // need this if statement to count for the negative numbers
+  }
+  for(var i=0; i < value; i++){ // because i is set at 0, if the value is a negative number, it will be undefined
+    if(curNode.next === null){
+      return false; 
+    } else {
+     curNode= curNode.next;
+    }
+    
+  }
+  return curNode;
+}   
 
 
 function remove(index){
@@ -74,39 +128,9 @@ function remove(index){
   } 
   previousNode.next = curNode.next;
 
-  size--;
+ // size--;
 }
 
-
-  function get(index){
-    var curNode = head;
-    var count = 0;
-
-    while(curNode !== null){
-      if(count === index){
-        return curNode;
-      } else {
-        curNode = curNode.next;
-        count ++;
-      } 
-    }
-    if(curNode === null){
-      return false;
-    }
-  }
-
-/*function get(value){
-  var curNode = head;
-  for(var i=0; i < value; i++){
-    if(curNode.next === null){
-      return false; 
-    } else {
-     curNode= curNode.next;
-    }
-  }
-  return curNode;
-}
-*/
 
 
 function insert(newValue, index){
@@ -120,9 +144,21 @@ function insert(newValue, index){
     next: curNode
   };
 
-  if(curNode === false){
+
+    if(curNode === false) {
     return false; 
-  } 
+  
+
+    }
+  
+
+
+
+
+ /* if(curNode === false) {
+    return false; 
+  } */
+
 
 if(index === 0){
   head = newNode;
@@ -131,11 +167,6 @@ if(index === 0){
   previousNode.next = newNode;
 }
 
-  /*if(curNode.next === null){
-    curNode.next = newNode;
-  } else {
-    previousNode.next = newNode;
-  } */
 
 /* if(index > size){
     return false;
