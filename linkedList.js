@@ -73,20 +73,6 @@ function add(newValue){
   } */
 
 
-  /* function get(value){
-  var curNode = head;
-  for(var i=0; i < value; i++){
-    if(curNode.next === null){
-      return false; 
-    } else {
-     curNode= curNode.next;
-    }
-    
-  }
-  return curNode;
-}  */
-
-
 
 function get(value){
   var curNode = head;
